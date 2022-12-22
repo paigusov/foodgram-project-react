@@ -25,8 +25,8 @@
 
 Может быть недоступно в связи с прекращением обслуживания.
 
-admin login - a.paigusov@yandex.ru
-admin pass - admin admin
+- admin login - a.paigusov@yandex.ru
+- admin pass - adminadmin
 
 Ссылка на [админку](http://84.201.177.68/admin).
 
