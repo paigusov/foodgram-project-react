@@ -13,6 +13,7 @@ class TagAdmin(admin.ModelAdmin):
 class IngredientRecipeInline(admin.TabularInline):
     model = IngredientContained
     min_num = 1
+    max_num = 2000
 
 @admin.register(Ingredient)
 class IngredientAdmin(admin.ModelAdmin):

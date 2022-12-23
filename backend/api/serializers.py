@@ -98,6 +98,10 @@ class RecipeSerializer(serializers.ModelSerializer):
                 raise serializers.ValidationError({
                     'amount': 'Количество ингредиента должно быть больше нуля!'
                 })
+            if int(amount) >= 2000:
+                raise serializers.ValidationError({
+                    'amount': 'Количество ингредиента должно быть меньше 2000!'
+                })
 
         tags = data['tags']
         if not tags:
@@ -147,7 +151,7 @@ class RecipeSerializer(serializers.ModelSerializer):
         instance.tags.clear()
         IngredientContained.objects.filter(recipe=instance).delete()
         self.create_tags(validated_data.pop('tags'), instance)
-        self.create_ingredients(validated_data.pop('ingredients'), instance)
+        self.add_ingredients(validated_data.pop('ingredients'), instance)
         return super().update(instance, validated_data)
 
 
